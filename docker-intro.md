@@ -86,9 +86,9 @@ This lab will show you how to build a Docker image for a toy program, push it to
 
     ![Developer Settings](assets/images/gh-dev-settings.png)
 
-6. On the developer settings page, select "Personal Access Tokens".
+6. On the developer settings page, select "Personal Access Tokens" and then "Tokens (Classic)".
 
-    ![Select PAT](assets/images/gh-pat.png)
+    ![Select PAT](assets/images/gh-pat-classic.png)
 
 7. Click create new token.
 
@@ -106,7 +106,7 @@ This lab will show you how to build a Docker image for a toy program, push it to
 
     ![Copy Token](assets/images/gh-copy-token.png)
 
-11. Back on the command-line, we'll use the `docker login` command to login to the GitHub container registry.
+11. Back on the command-line, we'll use the `docker login` command to login to the GitHub container registry. When using your username relative to GitHub or `ghcr.io`, make it all lowercase or you'll run into issues.
 
     ```
     docker login -u <Your GitHub Username> ghcr.io
@@ -125,6 +125,13 @@ This lab will show you how to build a Docker image for a toy program, push it to
     Login Succeeded
     ```
     Make sure to save your personal access token in a file somewhere on your machine. (I keep mine in my [password store](https://www.passwordstore.org/)). You'll want to use it later!
+    
+    ### Note:
+    In general, you shouldn't have to restart the Docker daemon, but if you do, this can be done with:
+    ```
+    sudo systemctl restart docker
+    ```
+    If you're using Docker Desktop you can simply stop and restart the application.
 
 ## Build and Push the Docker Image
 
