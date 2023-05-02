@@ -4,13 +4,16 @@ Objective: Learn how to interact with APIs using the command-line tool `curl` by
 
 ## Overview
 
+This lab presumes you are familiar with HTTP requests, particularly GET and
+POST; if you'd like to read more about these methods, see this [brief
+overview](./http-methods).
 In this lab, we'll be using the JSONPlaceholder API, a simple, free-to-use REST API for testing and prototyping. You can find the API documentation at [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com). This API provides several endpoints for interacting with fake data, such as users, posts, comments, and more.
 
 ## Step 1: Make a GET Request
 
 We'll start by making a GET request to retrieve a list of users. To do this, run the following command:
 
-```
+```bash
 curl -X GET https://jsonplaceholder.typicode.com/users
 ```
 
@@ -20,7 +23,7 @@ This command sends a GET request to the API, which returns a JSON array containi
 
 Now, let's create a new post using a POST request. To do this, run the following command:
 
-```
+```bash
 curl -X POST -H "Content-Type: application/json" -d '{"postId": 1, "name": "Jane Doe", "email": "jane.doe@example.com", "body": "This is a sample comment created using curl."}' https://jsonplaceholder.typicode.com/comments
 ```
 
