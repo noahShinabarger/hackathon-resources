@@ -6,7 +6,7 @@ Objective: Learn how to interact with APIs using the command-line tool `curl` by
 
 This lab presumes you are familiar with HTTP requests, particularly GET and
 POST; if you'd like to read more about these methods, see this [brief
-overview](./http-methods).
+overview](./http-methods.md).
 In this lab, we'll be using the JSONPlaceholder API, a simple, free-to-use REST API for testing and prototyping. You can find the API documentation at [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com). This API provides several endpoints for interacting with fake data, such as users, posts, comments, and more.
 
 ## Step 1: Make a GET Request
