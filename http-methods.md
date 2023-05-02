@@ -44,5 +44,5 @@ The `OPTIONS` method describes the communication options for the specified resou
 
 Example usage: Discovering which HTTP methods are supported by a specific API endpoint.
 
-These are some of the most common HTTP request methods. Understanding them is essential for working with APIs and building web applications. For more information, refer to the [official HTTP/1.1 specification](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
+These are some of the most common HTTP request methods. Understanding them is essential for working with APIs and building web applications. For more information, refer to the [official HTTP/1.1 specification](https://www.rfc-editor.org/rfc/rfc9110.html).
 
