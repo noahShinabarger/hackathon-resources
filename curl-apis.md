@@ -54,3 +54,5 @@ Example JSON response:
 ## Conclusion
 
 By the end of this lab, you should have a basic understanding of how to use `curl` to interact with APIs and perform GET and POST requests.
+
+## [Lab 2: API Parameters](api-parameters-and-pagination.md)
