@@ -2,7 +2,7 @@
 
 In this exercise, we'll convert our cmake example into a libFuzzer target. While we could analyze our `fuzzme` executable as-is in Mayhem, converting to a libFuzzer target allows us to take advantage of libFuzzer's extra features.
 
-1. Open `fuzzme.c` in your favorite text editor.
+1. Open `fuzzme.c` in your favorite text editor (this file is under the top-level `mayhem-cmake-example/` directory, not the `mayhem-cmake-example/build` directory).
 
 2. In a libFuzzer target, you don't need a main function. Instead, payloads are deliviered directly to a function with the following signature: `int LLVMFuzzerTestOneInput(char* data, size_t size)`. Try modifying `fuzzme.c` so that a function called `LLVMFuzzerTestOneInput` calls the candidate function (`fuzzme(...)`).
 
@@ -55,12 +55,18 @@ In this exercise, we'll convert our cmake example into a libFuzzer target. While
     CC=clang CXX=clang++ cmake ..
     ```
 
-   Note, if you're on macOS, you need to use a different, non-Apple Clang. We suggest using Homebrew (see the development environment instructions). However, you will need to change CC and CXX variables to reflect the location where the clang is located. If you're using the homebrew llvm package, you can use this command:
+   Note, if you're on macOS, you need to use a different, non-Apple Clang. We suggest using Homebrew to install (if you haven't already) with:
+   
+   ```
+   brew install llvm
+   ```
+   
+   However, you will need to change CC and CXX variables to reflect the location where the clang is located. If you're using the homebrew llvm package, you can use this command:
 
    ```
-   CC=/opt/homebrew/Cellar/llvm/<your_version>/bin/clang CXX=/opt/homebrew/Cellar/llvm/<your_version>/bin/clang++ cmake .. 
+   CC=/usr/local/Cellar/llvm/$(ls -1 /usr/local/Cellar/llvm/ | head -1)/bin/clang CXX=/usr/local/Cellar/llvm/$(ls -1 /usr/local/Cellar/llvm/  | head -1)/bin/clang++ cmake ..
    # OR 
-   cmake .. -DCMAKE_CXX_COMPILER=/opt/homebrew/Cellar/llvm/<your_version>/bin/clang++ -DCMAKE_C_COMPILER=/opt/homebrew/Cellar/llvm/<your_version>/bin/clang
+   cmake .. -DCMAKE_C_COMPILER=/usr/local/Cellar/llvm/$(ls -1 /usr/local/Cellar/llvm/ | head -1)/bin/clang -DCMAKE_CXX_COMPILER=/usr/local/Cellar/llvm/$(ls -1 /usr/local/Cellar/llvm/ | head -1)/bin/clang++
    ```
 
 8. Now run `make` to build.

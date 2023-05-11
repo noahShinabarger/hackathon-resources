@@ -1,16 +1,21 @@
 # Hackathon Resources
 
+ 
+```
+> mayhemheroes.phase_iii.init();
+```
+
 ## Useful Links
 
-- [Mayhem Online GUI](https://mayhem.forallsecure.com/)
+- [Sign up to Mayhem!](https://mayhem.forallsecure.com/)
 
 - [Mayhem Documentation](https://mayhem.forallsecure.com/docs/)
 
+- [Mayhem Tutorials](https://mayhem.forallsecure.com/docs/tutorial/choose-your-path/)
+
 - [Mayhem Community](https://community.forallsecure.com/)
 
-- [Discord Invite](https://discord.gg/UNBvxyq6)
-
-- [Survey](https://dydbdnwi0qu.typeform.com/to/jZEKf0it)
+- [Discord Invite](https://discord.gg/KhSGZnrEpp)
 
 ## Exercises
 
@@ -26,42 +31,50 @@
 
     See the target requirements for more information on what qualifies for integration.
 
-2. Create a fork of the repo you want to integrate.
+2. Create a fork of the repo you want to integrate. (If you are integrating an existing repo, please make sure you create a fork of the _mayhemheroes_ repo, NOT the upstream!)
 
-3. Integrate Mayhem into your Fork.
+3. Add additional harnessing or improve existing harnesses on the fork. You'll want to integrate your changes and ensure a successful action run _before_ submitting.
 
-4. Submit [this form](https://dydbdnwi0qu.typeform.com/to/YYJdU5wd).
+4. Submit [this form](https://dydbdnwi0qu.typeform.com/to/WWtkRLQn).
 
 5. Once ForAllSecure validates your target and elligiblity, you'll be asked to submit a pull request to the repository under github.com/mayhemheroes. If requested during the review, make changes.
 
-6. Once your changes have been approved and merged, you'll get paid within 45 days!
-    * $100 for integration
-    * $200 if the number of tests per second is greater than 100
-    * $200 if the test suite size is greater than 100
-    * $200 if a new function harness is added
-    * $300 if defect(s) are discovered
+6. Once your changes have been approved and merged, you'll be eligible for **up to $1000 for new integrations and $500 for existing integrations!**
 
 ## Target Checklist
 
-Targets that you wish to get paid for must meet the following criteria:
+Looking for a target to start working with? Start here!
 
-* Is a public repository on github.com.  Private repositories are currently not qualified.
+### Submitting new repos
 
-* Has 100 or more stars.
+New repo submissions must meet the following requirements:
 
-* All code is open source and available in source code format.
+* Must not already exist under github.com/mayhemheroes
 
-    - Code is considered Open Source if the entire code base is licensed under one (or more) of [the recognized Open Source Initiative Licenses](https://opensource.org/licenses/alphabetical). 
+* Over 100 stars
 
-* Mayhem is not already integrated; you can find a list of integrated repositories [here](https://github.com/mayhemheroes).
+* Active (has a commit from the past 6 months)
 
-* The project is not already a part of OSS-Fuzz; you can find a list of integrated repositories [here](https://github.com/google/oss-fuzz/tree/master/projects).
+* Not a part of OSS-Fuzz (fuzzing integration already exists, that would be too easy! check here https://github.com/google/oss-fuzz/tree/master/projects)
 
-* The project has been active in the last 6 months.
+* Nothing inappropriate - if you’re not sure, just ask
 
-* The resulting Mayhem run generates > 10 new test cases.
+An easy way to find eligible repos would be to run this one-liner:
+```
+comm -23 <(comm -23 <(gh search repos --stars ">100" --language "C,C++,Rust,Python,Ada,Java,Fortran,Go" --updated "<$(date +%Y-%m-%d -d "6 months ago")" --include-forks false --json name -q ".[].name" --limit 1000 | sort) <(gh repo list mayhemheroes --fork --visibility public --json name -q ".[].name" --limit 1000 | sort)) <(gh api '/repos/google/oss-fuzz/contents/projects?recursive=false' -q '.[].name' | sort)
+```
 
-* The target isn't inappropriate (e.g. an integration of [fetlang (NSFW)](https://github.com/fetlang/fetlang) was submitted and, despite meeting the criteria above, was rejected).
+NOTE: This will only return names. It's up to you to find the corresponding repo, as well as sanity check the result to see if it indeed does meet all the requirements.
+
+### Improving existing repos
+
+Existing repo submissions must meet the following requirements:
+
+* Repos eligible for improvement _have_ already been forked under github.com/mayhemheroes
+
+* You **must** add new harnessing or improve existing harnessing to these repositories
+
+* Submissions will be graded on increased testsuite size, improved speed, added code coverage and defects found
 
 If in doubt, ask in Discord or on the Mayhem Community.
 
@@ -73,7 +86,9 @@ There are several small configuration steps that you'll need to take on your rep
 
 * Package has public visibility.
 
-* Fork repository is configured with a `MAYHEM_TOKEN` secret.
+* Repo has been linked and has read+write access to the package.
+
+You can check the reply to [this community post](https://community.forallsecure.com/t/error-buildx-call-failed-with-error-denied-installation-not-allowed-to-write-organization-package/354/3) for more troubleshooting tips.
 
 ## Other Resources
 
