@@ -36,7 +36,8 @@ A 404 Not Found error occurs when the requested resource could not be found on t
 curl -X GET "https://jsonplaceholder.typicode.com/nonexistent"
 ```
 
-This command sends a GET request to a non-existent endpoint, resulting in a 404 Not Found error.
+
+This command sends a GET request to an endpoint with a non-existent post ID, resulting in a 404 Not Found error.
 
 ## Step 4: Handling Errors in Your Application
 
@@ -45,6 +46,22 @@ When interacting with APIs, it's essential to handle errors gracefully. In your 
 1. Check the HTTP status code of the response to determine if the request was successful.
 2. If the request was not successful, parse the error response to gather more information about the issue.
 3. Display a helpful error message to the user or implement a fallback mechanism (e.g., retrying the request, using cached data, or redirecting to an error page).
+
+For example, if you're using a JavaScript-based application with the `fetch` API, you could handle errors as follows:
+
+```javascript
+fetch("https://jsonplaceholder.typicode.com/posts/999999")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then((data) => {
+    // Process the data
+  })
+  .catch((error) =>
+```
 
 ## Conclusion
 
