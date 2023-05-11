@@ -20,6 +20,11 @@
 4. [libFuzzer Exercise](libfuzzer-exercise.md)
 5. [Mayhem GitHub Action Exercise](gh-actions.md)
 
+### API Exercises
+1. [Curling an API](curl-apis.md)
+2. [API Parameters](api-parameters-and-pagination.md)
+3. [Error Handling](error-handling.md)
+
 ## Mayhem Heroes Workflow
 
 1. Select a repository for integration.
