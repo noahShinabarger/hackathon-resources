@@ -23,7 +23,7 @@ docker build -t vampi_docker:latest -f VAmPI/Dockerfile VAmPI
 Start the API using Docker Compose:
 
 ```bash
-docker compose -f VAmPI/docker-compose.yaml up -d
+docker-compose -f VAmPI/docker-compose.yaml up -d
 ```
 
 ## Step 4: Create a User and Get a Bearer Token
