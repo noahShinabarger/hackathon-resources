@@ -60,8 +60,14 @@ fetch("https://jsonplaceholder.typicode.com/posts/999999")
   .then((data) => {
     // Process the data
   })
-  .catch((error) =>
+  .catch((error) => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
 ```
+
+In this example, the fetch function returns a Promise that resolves to the Response object representing the response to the request. This response is then processed and if the response was not successful (i.e., if the ok property of the Response object is false), an error is thrown.
+
+The catch method is used to handle the error. In this case, it logs the error message to the console, but in a real-world application, you might want to show an error message to the user, retry the request, or perform some other error recovery action.
 
 ## Conclusion
 
