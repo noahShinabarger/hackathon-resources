@@ -46,3 +46,5 @@ This command sends a GET request to the API and includes the following query par
 ## Conclusion
 
 By the end of this lab, you should have a better understanding of how to use query parameters with `curl` to filter, sort, and paginate API responses. This knowledge will help you work more effectively with APIs that support query parameters for refining the data returned.
+
+### [API Error Handling](error-handling.md)
