@@ -24,6 +24,7 @@
 1. [Curling an API](curl-apis.md)
 2. [API Parameters](api-parameters-and-pagination.md)
 3. [Error Handling](error-handling.md)
+4. [Fuzzing VAmPI](fuzzing-vampi.md)
 
 ## Mayhem Heroes Workflow
 
